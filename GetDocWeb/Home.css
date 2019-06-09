@@ -1,0 +1,48 @@
+﻿/* 페이지별 스타일 지정 */
+
+h1, h2 {
+    text-decoration-color: #4ec724;
+}
+
+input [type="submit"], input[type="button"] {
+    height: 24px;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: white;
+    border: 1px solid grey;
+    border-color: #dedfe0 #b9b9b9 #b9b9b9 #dedfe0;
+    cursor: pointer;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    font-family: "Segoe UI Light","Segoe UI",Tahoma,sans-serif;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+}
+
+.padding {
+    padding: 15px;
+}
+
+#notification-popup.ms-MessageBanner {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    text-align: left;
+    height: inherit;
+    min-width: inherit;
+}
+
+#notification-popup .ms-MessageBanner-text {
+    margin: 0;
+    padding: 18px 15px;
+    min-width: inherit;
+}
