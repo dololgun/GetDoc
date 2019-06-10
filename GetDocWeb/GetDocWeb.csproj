@@ -81,7 +81,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="base64.js" />
     <Content Include="base64js.min.js" />
     <Content Include="Content\fabric.components.css" />
     <Content Include="Content\fabric.components.min.css" />
@@ -129,7 +128,6 @@
     <Content Include="GetDoc_App.js" />
     <Content Include="Global.asax" />
     <Content Include="Home.css" />
-    <Content Include="Home.html" />
     <Content Include="GetDoc_App.html" />
     <Content Include="Images\AddinIcon.png" />
     <Content Include="Images\Button16x16.png" />

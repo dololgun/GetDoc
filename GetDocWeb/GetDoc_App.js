@@ -9,10 +9,6 @@ Office.initialize = function (reason) {
             sendFile();
         });
 
-        $('#getFile').click(function () {
-            getFile();
-        });
-
         // Update status
         updateStatus("Ready to send file.");
     });
@@ -25,11 +21,12 @@ function updateStatus(message) {
 }
 
 // Get all of the content from a PowerPoint or Word document in 100-KB chunks of text.
+// 조각은 3의 배수가 되도록 하는 것이 좋을 듯
 function sendFile() {
 
     Office.context.document.getFileAsync(
         "compressed",
-        { sliceSize: 500000 },
+        { sliceSize: 499998 },
         function (result) {
 
             if (result.status == Office.AsyncResultStatus.Succeeded) {
@@ -86,8 +83,6 @@ function sendSlice(slice, state) {
 
         // my tip : Files in the "compressed" format will return a byte array that can be transformed to a base64-encoded string if required.
         // data is a byte array
-        //var fileData = myEncodeBase64(data);
-        //var fileData = base64EncArr(data);
         var fileData = base64js.fromByteArray(data);
 
         //alert(fileData); // "QmFzZSA2NCDigJQgTW96aWxsYSBEZXZlbG9wZXIgTmV0d29yaw=="
@@ -121,9 +116,7 @@ function sendSlice(slice, state) {
         request.setRequestHeader("Slice-Number", slice.index);
 
         // Send the file as the body of an HTTP POST
-        // request to the web server.
         request.send(JSON.stringify({ "value": fileData, "fileFullName": Office.context.document.url, "index": slice.index }));
-        //request.send(fileData);
     }
 }
 
@@ -140,58 +133,4 @@ function closeFile(state) {
             updateStatus("File couldn't be closed.");
         }
     });
-}
-
-
-function getFile() {
-
-    // 배열로 선언
-    docdataSlices = [];
-
-    var request = new XMLHttpRequest();
-
-    request.onreadystatechange = function () {
-
-        if (request.readyState == 4) {
-            if (request.status == 200) {
-                //서버 응답 결과에 따라 알맞은 작업 처리
-                var resultJSON = JSON.parse(request.responseText);
-                for (i = 0; i < resultJSON.length; i++) {
-                    docdataSlices[i] = resultJSON[i].Value;
-                }
-                onGotAllSlices(docdataSlices);
-            }
-            else
-            {
-                updateStatus("문제 발생:" + request.status);
-            }
-        }
-    }
-
-    request.open("GET", "api/Receiver/");
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.send();
-}
-
-function onGotAllSlices(docdataSlices) {
-    let docdata = [];
-    for (let i = 0; i < docdataSlices.length; i++) {
-        docdata = docdata.concat(docdataSlices[i]);
-    }
-    const byteArray = new Uint8Array(docdata);
-    const blob = new Blob([byteArray]);
-    const a = document.createElement('a');
-    url = URL.createObjectURL(blob);
-
-    a.href = url;
-    a.download = 'WordTest.docx';
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function () {
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-    }, 0);
-
-
-
 }

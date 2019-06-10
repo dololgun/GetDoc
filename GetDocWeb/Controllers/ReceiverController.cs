@@ -18,12 +18,9 @@ namespace GetDocWeb.Controllers {
         }
     }
 
-    public class SliceInfo
-    {
+    public class SliceInfo {
         public string Value { get; set; }
         public string FileFullName { get; set; }
         public string Index { get; set; }
-
-        public string RootPath { get; set; }
     }
 }
