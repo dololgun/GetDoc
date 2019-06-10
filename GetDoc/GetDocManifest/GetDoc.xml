@@ -14,7 +14,7 @@
 
   <!--버전. 버전 변경이 있을 경우 트리거되는 저장소에서만 업데이트됩니다. -->
   <Version>1.0.0.0</Version>
-  <ProviderName>[공급자 이름]</ProviderName>
+  <ProviderName>돌로구니</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- 추가 기능의 표시 이름. 저장소에서 사용되며, 추가 기능 대화 상자와 같은 Office UI에 다양하게 배치됩니다. -->
   <DisplayName DefaultValue="GetDoc" />
