@@ -1,0 +1,21 @@
+'파워포인트 열기
+
+Set ppt = New Powerpoint.Application
+
+ppt.Visible = True
+
+ppt.Presentations.Open "c:\My Documents\ex_a2a.ppt"
+
+' 어쩌고 저쩌꼬 
+
+With Application.Presentations("test.ppt").Windows(1)
+
+    If Not .Active Then
+
+        Set oldWin = Application.ActiveWindow
+
+        .Activate
+
+    End If
+
+End With
