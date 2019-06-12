@@ -14,11 +14,11 @@
 
   <!--버전. 버전 변경이 있을 경우 트리거되는 저장소에서만 업데이트됩니다. -->
   <Version>1.0.0.0</Version>
-  <ProviderName>[공급자 이름]</ProviderName>
+  <ProviderName>Matthew</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- 추가 기능의 표시 이름. 저장소에서 사용되며, 추가 기능 대화 상자와 같은 Office UI에 다양하게 배치됩니다. -->
-  <DisplayName DefaultValue="GetDocExcel" />
-  <Description DefaultValue="GetDocExcel"/>
+  <DisplayName DefaultValue="GetDocWeb" />
+  <Description DefaultValue="GetDocWeb Description"/>
   <!-- 추가 기능 아이콘. 설치 화면과 추가 기능 대화 상자에서 사용됩니다. -->
   <IconUrl DefaultValue="~remoteAppUrl/Images/Button32x32.png" />
 
@@ -36,7 +36,7 @@
     <Host Name="Workbook" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="~remoteAppUrl/Home.html" />
+    <SourceLocation DefaultValue="~remoteAppUrl/GetDoc_App.html" />
   </DefaultSettings>
   <!-- 작업창 모드 통합을 종료합니다.  -->
 
@@ -121,7 +121,7 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="~remoteAppUrl/Functions/FunctionFile.html" />
-        <bt:Url id="Contoso.Taskpane.Url" DefaultValue="~remoteAppUrl/Home.html" />
+        <bt:Url id="Contoso.Taskpane.Url" DefaultValue="~remoteAppUrl/GetDoc_App.html" />
         <bt:Url id="Contoso.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
       </bt:Urls>
       <!-- ShortStrings 최대 문자 길이==125. -->

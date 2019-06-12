@@ -25,7 +25,7 @@ function updateStatus(message) {
 function sendFile() {
 
     Office.context.document.getFileAsync(
-        "compressed",
+        Office.FileType.Compressed,
         { sliceSize: 499998 },
         function (result) {
 

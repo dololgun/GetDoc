@@ -49,6 +49,17 @@
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GetDocWeb\GetDocWeb.csproj">
+      <Project>{5B84C4FA-2B14-4DBB-A2B6-1D25C3CA4B7A}</Project>
+      <Name>GetDocWeb</Name>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <OutputItemType>SharePointWebProjectOutput</OutputItemType>
+      <RoleName>GetDocWeb</RoleName>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
