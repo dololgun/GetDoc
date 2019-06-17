@@ -26,7 +26,7 @@ function sendFile() {
 
     Office.context.document.getFileAsync(
         Office.FileType.Compressed,
-        { sliceSize: 499998 },
+        { sliceSize: 65001 },
         function (result) {
 
             if (result.status == Office.AsyncResultStatus.Succeeded) {
